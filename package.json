@@ -4,12 +4,12 @@
   "private": false,
   "description": "",
   "keywords": [],
-  "license": "ISC",
-  "author": "Camilla Thorsen <camilla@thorsen.dev> (https://github.com/camthorsen)",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/camthorsen/pet-profiler.git"
+    "url": "git+https://github.com/camthorsen/samdesk-challenge.git"
   },
+  "license": "UNLICENSED",
+  "author": "Camilla Thorsen <camilla@thorsen.dev> (https://github.com/camthorsen)",
   "main": "index.js",
   "scripts": {
     "test": "jest"
