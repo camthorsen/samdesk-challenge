@@ -34,7 +34,7 @@
 type Level = number;
 type Report = Level[];
 
-/** Return the count of safe reports based on input file string contents **/
+/** Return the count of safe reports based on input file string contents */
 export function getSafeReportCount(input: string): number {
   return parseReports(input).filter(isReportSafe).length;
 }
@@ -43,32 +43,27 @@ export function parseReports(input: string): Report[] {
   return input
     .split('\n')
     .filter((row) => row.length > 0)
-    .map((row) => row.split(' ').map(Number)); // split rows into num[]
+    .map((row) => row.split(' ').map(Number));
 }
 
 export function isReportSafe(report: Report): boolean {
   let isIncreasing: boolean | undefined;
   let isDecreasing: boolean | undefined;
 
-  if (!report.length) return false;
-
   for (let i = 0; i <= report.length - 2; i++) {
     const curr = report[i]!;
     const next = report[i + 1]!;
 
-    // 1) Levels are all increasing OR decreasing
     if (curr > next) {
-      if (!!isDecreasing) return false;
+      if (isDecreasing) return false;
       isIncreasing = true;
     } else if (curr < next) {
-      if (!!isIncreasing) return false;
+      if (isIncreasing) return false;
       isDecreasing = true;
     } else {
-      // 2) Any two adjacent levels differ by at least one
       return false;
     }
 
-    // 2) Any two adjacent levels differ by at most three.
     if (Math.abs(curr - next) > 3) return false;
   }
 
