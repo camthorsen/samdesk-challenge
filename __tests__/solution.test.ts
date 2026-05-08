@@ -1,4 +1,4 @@
-import { getSafeReportCount, getSafeReportCountWithDampener, parseReports, isReportSafe, isReportSafeWithDampener } from '../getSafeReportCount.js';
+import { getSafeReportCount, getSafeReportCountWithDampener, parseReports, isReportSafe, isReportSafeWithDampener } from '../solution.js';
 
 const exampleInput = `7 6 4 2 1
 1 2 7 8 9
