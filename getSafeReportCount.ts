@@ -31,14 +31,28 @@
 
  Analyze the unusual data from the engineers. How many reports are safe? **/
 
+import { readFileSync } from 'fs';
+
+type Level = number;
+type Report = Level[];
+
+/** Return the count of safe reports based on input file string contents **/
 export function getSafeReportCount(input: string): number {
-  return 0;
+  return parseReports(input).filter(isReportSafe).length;
 }
 
-import { readFileSync } from "fs";
+export function parseReports(input: string): Report[] {
+  return input
+    .split('\n')
+    .filter((row) => row.length > 0)
+    .map((row) => row.split(' ').map(Number)); // split rows into num[]
+}
 
+function isReportSafe(report: Report): boolean {}
+
+/** Main function to read input file data **/
 function main() {
-  const input = readFileSync("input.txt", "utf-8");
+  const input = readFileSync('input.txt', 'utf-8');
   console.log(getSafeReportCount(input));
 }
 
