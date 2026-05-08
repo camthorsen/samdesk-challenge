@@ -48,7 +48,34 @@ export function parseReports(input: string): Report[] {
     .map((row) => row.split(' ').map(Number)); // split rows into num[]
 }
 
-function isReportSafe(report: Report): boolean {}
+function isReportSafe(report: Report = []): boolean {
+  let isIncreasing: boolean | undefined;
+  let isDecreasing: boolean | undefined;
+
+  if (!report.length) return false;
+
+  for (let i = 0; i <= report.length - 2; i++) {
+    const curr = report[i]!;
+    const next = report[i + 1]!;
+
+    // 1) Levels are all increasing OR decreasing
+    if (curr > next) {
+      if (!!isDecreasing) return false;
+      isIncreasing = true;
+    } else if (curr < next) {
+      if (!!isIncreasing) return false;
+      isDecreasing = true;
+    } else {
+      // 2) Any two adjacent levels differ by at least one
+      return false;
+    }
+
+    // 2) Any two adjacent levels differ by at most three.
+    if (Math.abs(curr - next) > 3) return false;
+  }
+
+  return true;
+}
 
 /** Main function to read input file data **/
 function main() {
