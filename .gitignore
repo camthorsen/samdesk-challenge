@@ -1,0 +1,26 @@
+# Editor directories and files
+.idea/
+
+# Dependencies
+node_modules/
+.pnpm-debug.log*
+
+# Local-only
+local/
+tmp/
+*.local
+*.private.env.json
+*.tmp
+
+# Logs
+logs
+*.log
+
+# OS files
+.DS_Store
+
+# Testing
+coverage/
+
+# TypeScript
+*.tsbuildinfo
