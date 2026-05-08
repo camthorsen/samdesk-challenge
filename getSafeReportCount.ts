@@ -34,3 +34,14 @@
 export function getSafeReportCount(input: string): number {
   return 0;
 }
+
+import { readFileSync } from "fs";
+
+function main() {
+  const input = readFileSync("input.txt", "utf-8");
+  console.log(getSafeReportCount(input));
+}
+
+if (require.main === module) {
+  main();
+}

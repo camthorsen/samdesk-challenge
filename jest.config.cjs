@@ -4,6 +4,9 @@ const config = {
     "^.+\\.tsx?$": ["ts-jest", { tsconfig: "tsconfig.test.json" }],
   },
   testMatch: ["**/*.test.ts"],
+  moduleNameMapper: {
+    "^(.*)\\.js$": "$1",
+  },
 };
 
 module.exports = config;
