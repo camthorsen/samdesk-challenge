@@ -46,7 +46,7 @@ export function parseReports(input: string): Report[] {
     .map((row) => row.split(' ').map(Number)); // split rows into num[]
 }
 
-function isReportSafe(report: Report = []): boolean {
+export function isReportSafe(report: Report): boolean {
   let isIncreasing: boolean | undefined;
   let isDecreasing: boolean | undefined;
 

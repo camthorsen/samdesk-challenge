@@ -1,4 +1,4 @@
-import { getSafeReportCount, parseReports } from '../getSafeReportCount.js';
+import { getSafeReportCount, parseReports, isReportSafe } from '../getSafeReportCount.js';
 
 const exampleInput = `7 6 4 2 1
 1 2 7 8 9
@@ -24,32 +24,34 @@ describe('parseReports', () => {
   });
 });
 
-describe('getSafeReportCount', () => {
-  it('returns 2 for the example input', () => {
-    expect(getSafeReportCount(exampleInput)).toBe(2);
+describe('isReportSafe', () => {
+  it('accepts a monotonically decreasing report', () => {
+    expect(isReportSafe([7, 6, 4, 2, 1])).toBe(true);
   });
 
-  it('counts a monotonically decreasing report as safe', () => {
-    expect(getSafeReportCount('7 6 4 2 1')).toBe(1);
+  it('accepts a monotonically increasing report', () => {
+    expect(isReportSafe([1, 3, 6, 7, 9])).toBe(true);
   });
 
-  it('counts a monotonically increasing report as safe', () => {
-    expect(getSafeReportCount('1 3 6 7 9')).toBe(1);
+  it('rejects a report where adjacent levels increase by more than 3', () => {
+    expect(isReportSafe([1, 2, 7, 8, 9])).toBe(false);
   });
 
-  it('rejects a report where adjacent levels differ by more than 3', () => {
-    expect(getSafeReportCount('1 2 7 8 9')).toBe(0);
-  });
-
-  it('rejects a report where a decrease exceeds 3', () => {
-    expect(getSafeReportCount('9 7 6 2 1')).toBe(0);
+  it('rejects a report where adjacent levels decrease by more than 3', () => {
+    expect(isReportSafe([9, 7, 6, 2, 1])).toBe(false);
   });
 
   it('rejects a report with mixed direction', () => {
-    expect(getSafeReportCount('1 3 2 4 5')).toBe(0);
+    expect(isReportSafe([1, 3, 2, 4, 5])).toBe(false);
   });
 
   it('rejects a report with equal adjacent levels', () => {
-    expect(getSafeReportCount('8 6 4 4 1')).toBe(0);
+    expect(isReportSafe([8, 6, 4, 4, 1])).toBe(false);
+  });
+});
+
+describe('getSafeReportCount', () => {
+  it('returns 2 for the example input', () => {
+    expect(getSafeReportCount(exampleInput)).toBe(2);
   });
 });
