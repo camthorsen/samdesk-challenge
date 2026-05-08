@@ -1,17 +1,23 @@
 {
   "name": "samdesk-challenge",
   "version": "1.0.0",
+  "private": false,
   "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "Camilla Thorsen <camilla@thorsen.dev> (https://github.com/camthorsen)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/camthorsen/pet-profiler.git"
+  },
   "main": "index.js",
   "scripts": {
     "test": "jest"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "packageManager": "pnpm@10.4.1",
   "devDependencies": {
     "jest": "^30.4.0",
+    "prettier": "^3.8.3",
     "typescript": "^6.0.3"
-  }
+  },
+  "packageManager": "pnpm@10.4.1"
 }

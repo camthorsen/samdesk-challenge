@@ -11,6 +11,9 @@ importers:
       jest:
         specifier: ^30.4.0
         version: 30.4.0(@types/node@25.6.2)
+      prettier:
+        specifier: ^3.8.3
+        version: 3.8.3
       typescript:
         specifier: ^6.0.3
         version: 6.0.3
@@ -1060,6 +1063,11 @@ packages:
   pkg-dir@4.2.0:
     resolution: {integrity: sha512-HRDzbaKjC+AOWVXxAU/x54COGeIv9eb+6CkDSQoNTt4XyWoIJvuPsXizxu/Fr23EiekbtZwmh1IcIG/l/a10GQ==}
     engines: {node: '>=8'}
+
+  prettier@3.8.3:
+    resolution: {integrity: sha512-7igPTM53cGHMW8xWuVTydi2KO233VFiTNyF5hLJqpilHfmn8C8gPf+PS7dUT64YcXFbiMGZxS9pCSxL/Dxm/Jw==}
+    engines: {node: '>=14'}
+    hasBin: true
 
   pretty-format@30.4.0:
     resolution: {integrity: sha512-PzJLEF72RqCj01UTBWqBi2ar3U2iJ0oG0+HzcdHPW+rzfpzDCuiVeiy6lns8L3Nbpp4Ajw+nBsW2KuKPPyPlCw==}
@@ -2553,6 +2561,8 @@ snapshots:
   pkg-dir@4.2.0:
     dependencies:
       find-up: 4.1.0
+
+  prettier@3.8.3: {}
 
   pretty-format@30.4.0:
     dependencies:
