@@ -1,4 +1,4 @@
-import { getSafeReportCount, parseReports, isReportSafe } from '../getSafeReportCount.js';
+import { getSafeReportCount, getSafeReportCountWithDampener, parseReports, isReportSafe, isReportSafeWithDampener } from '../getSafeReportCount.js';
 
 const exampleInput = `7 6 4 2 1
 1 2 7 8 9
@@ -53,5 +53,33 @@ describe('isReportSafe', () => {
 describe('getSafeReportCount', () => {
   it('returns 2 for the example input', () => {
     expect(getSafeReportCount(exampleInput)).toBe(2);
+  });
+});
+
+describe('isReportSafeWithDampener', () => {
+  it('accepts a report that is already safe', () => {
+    expect(isReportSafeWithDampener([7, 6, 4, 2, 1])).toBe(true);
+  });
+
+  it('accepts a report made safe by removing one level', () => {
+    expect(isReportSafeWithDampener([1, 3, 2, 4, 5])).toBe(true);
+  });
+
+  it('accepts a report made safe by removing a duplicate level', () => {
+    expect(isReportSafeWithDampener([8, 6, 4, 4, 1])).toBe(true);
+  });
+
+  it('rejects a report that is unsafe regardless of which level is removed', () => {
+    expect(isReportSafeWithDampener([1, 2, 7, 8, 9])).toBe(false);
+  });
+
+  it('rejects a report with multiple large decreases', () => {
+    expect(isReportSafeWithDampener([9, 7, 6, 2, 1])).toBe(false);
+  });
+});
+
+describe('getSafeReportCountWithDampener', () => {
+  it('returns 4 for the example input', () => {
+    expect(getSafeReportCountWithDampener(exampleInput)).toBe(4);
   });
 });
