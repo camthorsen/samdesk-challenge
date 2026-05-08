@@ -31,8 +31,6 @@
 
  Analyze the unusual data from the engineers. How many reports are safe? **/
 
-import { readFileSync } from 'fs';
-
 type Level = number;
 type Report = Level[];
 
@@ -77,12 +75,3 @@ function isReportSafe(report: Report = []): boolean {
   return true;
 }
 
-/** Main function to read input file data **/
-function main() {
-  const input = readFileSync('input.txt', 'utf-8');
-  console.log(getSafeReportCount(input));
-}
-
-if (require.main === module) {
-  main();
-}

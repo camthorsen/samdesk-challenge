@@ -16,7 +16,7 @@ pnpm install
 ## Running a solution
 
 ```bash
-npx ts-node getSafeReportCount.ts
+npx tsx run.ts
 ```
 
 The solution reads from `input.txt` in the project root.
