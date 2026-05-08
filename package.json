@@ -10,13 +10,16 @@
   },
   "license": "UNLICENSED",
   "author": "Camilla Thorsen <camilla@thorsen.dev> (https://github.com/camthorsen)",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "jest"
   },
   "devDependencies": {
+    "@types/jest": "^30.0.0",
     "jest": "^30.4.0",
     "prettier": "^3.8.3",
+    "ts-jest": "^29.4.9",
     "typescript": "^6.0.3"
   },
   "packageManager": "pnpm@10.4.1"
